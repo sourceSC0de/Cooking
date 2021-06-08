@@ -1,6 +1,5 @@
 package hu.SourceSCOde.ChefTools.KitchenWares;
 
-import hu.SourceSCOde.ChefTools.Ingredients.Ingredient;
 
 public class KitchenWare {
 

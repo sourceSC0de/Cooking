@@ -8,6 +8,13 @@ public class Ingredient {
     private boolean isCutted = false;
     private boolean isCuttable = true;
 
+    //0 = 0% ; 1 = 100%
+    private double salty;
+    private double sweet;
+    private double sour;
+    private double hot;
+    private double bitter;
+
     public Ingredient(int quantity, String MEASURE) {
         this.quantity = quantity;
         this.MEASURE = MEASURE;
@@ -47,5 +54,45 @@ public class Ingredient {
 
     public void setCuttable(boolean cuttable) {
         isCuttable = cuttable;
+    }
+
+    public double getSalty() {
+        return salty;
+    }
+
+    public void setSalty(double salty) {
+        this.salty = salty;
+    }
+
+    public double getSweet() {
+        return sweet;
+    }
+
+    public void setSweet(double sweet) {
+        this.sweet = sweet;
+    }
+
+    public double getSour() {
+        return sour;
+    }
+
+    public void setSour(double sour) {
+        this.sour = sour;
+    }
+
+    public double getHot() {
+        return hot;
+    }
+
+    public void setHot(double hot) {
+        this.hot = hot;
+    }
+
+    public double getBitter() {
+        return bitter;
+    }
+
+    public void setBitter(double bitter) {
+        this.bitter = bitter;
     }
 }

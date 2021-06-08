@@ -6,7 +6,6 @@ import hu.SourceSCOde.ChefTools.KitchenWares.FirePlace;
 import hu.SourceSCOde.ChefTools.KitchenWares.Knife;
 import hu.SourceSCOde.ChefTools.KitchenWares.Pan;
 
-import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
@@ -15,6 +14,7 @@ public class Main {
         Tomato tomato = new Tomato(2, "pc");
         Paprika paprika = new Paprika(2, "pc");
         Butter butter = new Butter(25, "g");
+        //TODO Fűszerek
 
         CuttingBoard board = new CuttingBoard("In Use", new Ingredient[]{onion, tomato, paprika});
         Knife knife = new Knife("In Use", board);
