@@ -10,13 +10,14 @@ import hu.SourceSCOde.ChefTools.KitchenWares.Pan;
 public class Main {
     public static void main(String[] args) {
 
+        //TODO: documentation
+
         Onion onion = new Onion(1, "pc");
         Tomato tomato = new Tomato(2, "pc");
         Paprika paprika = new Paprika(2, "pc");
         Butter butter = new Butter(25, "g");
         Salt salt = new Salt(0,"pinch");
         Pepper pepper = new Pepper(0, "pinch");
-        //TODO Fűszerek
 
         CuttingBoard board = new CuttingBoard("In Use", new Ingredient[]{onion, tomato, paprika});
         Knife knife = new Knife("In Use", board);
@@ -70,7 +71,7 @@ public class Main {
 
     private static Salt getSaltFromIngredients(Ingredient[] ingredients) {
         int indexSalt = 0;
-        while (!(ingredients[indexSalt] instanceof Salt && indexSalt < ingredients.length)){
+        while (indexSalt < ingredients.length && !(ingredients[indexSalt] instanceof Salt)) {
             indexSalt++;
         }
         return (Salt) ingredients[indexSalt];
@@ -93,7 +94,7 @@ public class Main {
 
     private static Pepper getPepperFromIngredients(Ingredient[] ingredients) {
         int indexPepper = 0;
-        while (!(ingredients[indexPepper] instanceof Pepper && indexPepper < ingredients.length)){
+        while (indexPepper < ingredients.length && !(ingredients[indexPepper] instanceof Pepper)){
             indexPepper++;
         }
         return (Pepper) ingredients[indexPepper];
