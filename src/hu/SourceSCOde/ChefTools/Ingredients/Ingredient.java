@@ -1,5 +1,9 @@
 package hu.SourceSCOde.ChefTools.Ingredients;
 
+/**
+ * Egyes összetevők ősosztálya.
+ */
+
 public class Ingredient {
 
     private int quantity;

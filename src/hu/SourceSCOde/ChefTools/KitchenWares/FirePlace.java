@@ -4,6 +4,10 @@ import hu.SourceSCOde.ChefTools.Ingredients.Ingredient;
 
 public class FirePlace extends KitchenWare{
 
+    /**
+     * A serpenyőben lévő dolgokat tudjuk megfőzni a tűzhelyen.
+     */
+
     private Pan pan;
 
     public FirePlace(String status, Pan pan) {

@@ -7,6 +7,10 @@ import java.util.Locale;
 
 public class Knife extends KitchenWare{
 
+    /**
+     * Kést nem használunk vágódeszka nélkül.
+     */
+
     private CuttingBoard cuttingBoard;
 
     public Knife(String status, CuttingBoard cuttingBoard) {
@@ -21,6 +25,10 @@ public class Knife extends KitchenWare{
     public void setCuttingBoard(CuttingBoard cuttingBoard) {
         this.cuttingBoard = cuttingBoard;
     }
+
+    /**
+     * A vágódeszkán található hozzávalókat összevágjuk.
+     */
 
     public void process(){
         this.setStatus("In Use");

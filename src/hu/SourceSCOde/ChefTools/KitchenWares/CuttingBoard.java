@@ -2,6 +2,10 @@ package hu.SourceSCOde.ChefTools.KitchenWares;
 
 import hu.SourceSCOde.ChefTools.Ingredients.Ingredient;
 
+  /**
+  * A felszeletelendő összetevők összegyűjtésére szolgál.
+  */
+
 public class CuttingBoard extends KitchenWare{
      private Ingredient[] ingredients;
 
