@@ -8,6 +8,5 @@ public class Onion extends Ingredient {
         setSalty(0);
         setSour(0);
         setSweet(0.2);
-        System.out.println("Kurvára csipi a szemem!!!!");
     }
 }

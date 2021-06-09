@@ -1,6 +1,9 @@
 package hu.SourceSCOde.ChefTools.KitchenWares;
 
 import hu.SourceSCOde.ChefTools.Ingredients.Ingredient;
+import hu.SourceSCOde.ChefTools.Ingredients.Onion;
+
+import java.util.Locale;
 
 public class Knife extends KitchenWare{
 
@@ -23,6 +26,10 @@ public class Knife extends KitchenWare{
         this.setStatus("In Use");
         for (Ingredient ing : cuttingBoard.getIngredients()) {
             ing.setCutted(true);
+            System.out.println("The " + ing.getClass().getSimpleName().toLowerCase(Locale.ROOT) + " has been cut.");
+            if (ing instanceof Onion) {
+                System.out.println("(Damn ninjas chopping onions!)");
+            }
         }
 
     }

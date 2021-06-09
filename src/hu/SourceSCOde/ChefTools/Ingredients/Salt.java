@@ -5,7 +5,7 @@ public class Salt extends Spice{
         super(quantity, MEASURE);
         setBitter(0);
         setHot(0);
-        setSalty(1d);
+        setSalty(1);
         setSour(0);
         setSweet(0);
     }

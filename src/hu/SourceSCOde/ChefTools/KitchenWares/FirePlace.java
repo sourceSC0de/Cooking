@@ -23,9 +23,10 @@ public class FirePlace extends KitchenWare{
         for (Ingredient ing : getPan().getIngredients()) {
             if (ing.isCutted() || !ing.isCuttable()) {
                 ing.setCooked(true);
-                return true;
+            } else {
+                return false;
             }
         }
-        return false;
+        return true;
     }
 }
