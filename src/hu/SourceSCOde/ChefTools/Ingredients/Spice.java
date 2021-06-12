@@ -3,8 +3,7 @@ package hu.SourceSCOde.ChefTools.Ingredients;
 public class Spice extends Ingredient {
 
     public Spice(int quantity, String MEASURE) {
-        super(quantity, MEASURE);
-        this.setCuttable(false);
+        super(quantity, MEASURE, new String[]{"raw", "cooked"});
     }
 
     /**
@@ -18,21 +17,27 @@ public class Spice extends Ingredient {
 
     public static boolean spicing(Ingredient[] ingredients, double goalSaltiness, double goalHotness) {
         double saltiness = getAverageSaltiness(ingredients);
+        int counter = 0;
 
         Salt salt = getSaltFromIngredients(ingredients);
-        while (goalSaltiness - saltiness > 0.0001){
+        while (goalSaltiness - saltiness > 0.01){
             salt.setQuantity(salt.getQuantity() + 1);
             saltiness = getAverageSaltiness(ingredients);
+            counter++;
         }
+        System.out.println("Add " + counter + " extra " + salt.getMEASURE() + " of salt.");
 
 
         double hotness = getAverageHotness(ingredients);
+        counter = 0;
 
         Pepper pepper = getPepperFromIngredients(ingredients);
-        while (goalHotness - hotness > 0.0001){
+        while (goalHotness - hotness > 0.01){
             pepper.setQuantity(pepper.getQuantity() + 1);
             hotness = getAverageHotness(ingredients);
+            counter++;
         }
+        System.out.println("Add " + counter + " extra " + salt.getMEASURE() + " of pepper.");
 
         return Math.abs(goalSaltiness - saltiness) < 0.01 && Math.abs(goalHotness - hotness) < 0.01;
     }

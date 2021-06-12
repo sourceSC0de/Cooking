@@ -8,9 +8,8 @@ public class Ingredient {
 
     private int quantity;
     final String MEASURE;
-    private boolean isCooked = false;
-    private boolean isCutted = false;
-    private boolean isCuttable = true;
+    private final String[] POSSIBLE_STATES;// = {"raw", "washed", "peeled", "cutted", "cooked"};
+    private int stateIndex = 0;
 
     //0 = 0% ; 1 = 100%
     private double salty;
@@ -19,9 +18,10 @@ public class Ingredient {
     private double hot;
     private double bitter;
 
-    public Ingredient(int quantity, String MEASURE) {
+    public Ingredient(int quantity, String MEASURE, String[] POSSIBLE_STATES) {
         this.quantity = quantity;
         this.MEASURE = MEASURE;
+        this.POSSIBLE_STATES = POSSIBLE_STATES;
     }
 
     public int getQuantity() {
@@ -36,28 +36,16 @@ public class Ingredient {
         return MEASURE;
     }
 
-    public boolean isCooked() {
-        return isCooked;
+    public String getPossibleStates(int index) {
+        return POSSIBLE_STATES[index];
     }
 
-    public void setCooked(boolean cooked) {
-        isCooked = cooked;
+    public int getStateIndex() {
+        return stateIndex;
     }
 
-    public boolean isCutted() {
-        return isCutted;
-    }
-
-    public void setCutted(boolean cutted) {
-        isCutted = cutted;
-    }
-
-    public boolean isCuttable() {
-        return isCuttable;
-    }
-
-    public void setCuttable(boolean cuttable) {
-        isCuttable = cuttable;
+    public void setStateIndex(int stateIndex) {
+        this.stateIndex = stateIndex;
     }
 
     public double getSalty() {
@@ -98,5 +86,13 @@ public class Ingredient {
 
     public void setBitter(double bitter) {
         this.bitter = bitter;
+    }
+
+    public String getCurrentState() {
+        return POSSIBLE_STATES[stateIndex];
+    }
+
+    public String getNextState() {
+        return POSSIBLE_STATES[stateIndex + 1];
     }
 }

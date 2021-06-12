@@ -10,8 +10,8 @@ public class FirePlace extends KitchenWare{
 
     private Pan pan;
 
-    public FirePlace(String status, Pan pan) {
-        super(status);
+    public FirePlace(Pan pan) {
+        super("clean");
         this.pan = pan;
     }
 
@@ -23,14 +23,5 @@ public class FirePlace extends KitchenWare{
         this.pan = pan;
     }
 
-    public boolean cook(){
-        for (Ingredient ing : getPan().getIngredients()) {
-            if (ing.isCutted() || !ing.isCuttable()) {
-                ing.setCooked(true);
-            } else {
-                return false;
-            }
-        }
-        return true;
-    }
+
 }

@@ -1,14 +1,12 @@
 package hu.SourceSCOde.ChefTools;
 
 import hu.SourceSCOde.ChefTools.Ingredients.*;
-import hu.SourceSCOde.ChefTools.KitchenWares.CuttingBoard;
-import hu.SourceSCOde.ChefTools.KitchenWares.FirePlace;
-import hu.SourceSCOde.ChefTools.KitchenWares.Knife;
-import hu.SourceSCOde.ChefTools.KitchenWares.Pan;
+import hu.SourceSCOde.ChefTools.KitchenWares.*;
+import hu.SourceSCOde.ChefTools.Recipes.Recipe;
 
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
         /**
          * Hozzávalók összeszedése.
@@ -20,24 +18,21 @@ public class Main {
         Butter butter = new Butter(25, "g");
         Salt salt = new Salt(0,"pinch");
         Pepper pepper = new Pepper(0, "pinch");
+        Water water = new Water(2, "dl");
 
         /**
-         * Konyhai eszközök előkészítése, hozzávalók felvágása.
+         * Eszközök előkészítése
          */
 
-        CuttingBoard board = new CuttingBoard("In Use", new Ingredient[]{onion, tomato, paprika});
-        Knife knife = new Knife("In Use", board);
-        knife.process();
+        CuttingBoard cuttingBoard = new CuttingBoard();
+        Knife knife = new Knife (cuttingBoard);
+        Pan pan = new Pan();
+        FirePlace firePlace = new FirePlace(pan);
 
-        /**
-         * A serpenyőt a tűzhelyre tesszük, megfőzzük és megfűszerezzük az ételt.
-         */
+        Recipe recipe = new Recipe(new Ingredient[] {onion, tomato, paprika, butter, salt, pepper, water},
+                new KitchenWare[] {knife, cuttingBoard, pan, firePlace}, 0.2, 0.1, "Lecsó");
+        recipe.cooking();
 
-        Pan pan = new Pan("In Use", new Ingredient[] {onion, butter, tomato, paprika});
-        FirePlace firePlace = new FirePlace("In Use", pan);
-        boolean isTasty = Spice.spicing(new Ingredient[] {onion, butter, tomato, paprika, salt, pepper},
-                0.2, 0.1);
-        System.out.println((firePlace.cook() ? "Dinner is ready" +
-                " and it is " + (isTasty ? "delicious!" : "not so tasty.") : "No dinner today"));
+        System.out.println("\nOur job is done here, we cooked the dinner, it's Tamás' duty to wash the dishes.");
     }
 }

@@ -13,8 +13,8 @@ public class Knife extends KitchenWare{
 
     private CuttingBoard cuttingBoard;
 
-    public Knife(String status, CuttingBoard cuttingBoard) {
-        super(status);
+    public Knife(CuttingBoard cuttingBoard) {
+        super("clean");
         this.cuttingBoard = cuttingBoard;
     }
 
@@ -32,13 +32,7 @@ public class Knife extends KitchenWare{
 
     public void process(){
         this.setStatus("In Use");
-        for (Ingredient ing : cuttingBoard.getIngredients()) {
-            ing.setCutted(true);
-            System.out.println("The " + ing.getClass().getSimpleName().toLowerCase(Locale.ROOT) + " has been cut.");
-            if (ing instanceof Onion) {
-                System.out.println("(Damn ninjas chopping onions!)");
-            }
-        }
-
+        Ingredient ing = cuttingBoard.getIngredient();
+        ing.setStateIndex(ing.getStateIndex() + 1);
     }
 }

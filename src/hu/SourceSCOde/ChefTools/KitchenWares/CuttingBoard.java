@@ -7,18 +7,17 @@ import hu.SourceSCOde.ChefTools.Ingredients.Ingredient;
   */
 
 public class CuttingBoard extends KitchenWare{
-     private Ingredient[] ingredients;
+     private Ingredient ingredient;
 
-    public CuttingBoard(String status, Ingredient[] ingredients) {
-        super(status);
-        this.ingredients = ingredients;
+    public CuttingBoard() {
+        super("clean");
     }
 
-    public Ingredient[] getIngredients() {
-        return ingredients;
+    public Ingredient getIngredient() {
+        return ingredient;
     }
 
-    public void setIngredients(Ingredient[] ingredients) {
-        this.ingredients = ingredients;
+    public void setIngredient(Ingredient ingredient) {
+        this.ingredient = ingredient;
     }
 }
