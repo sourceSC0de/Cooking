@@ -28,11 +28,16 @@ public class Main {
         Knife knife = new Knife (cuttingBoard);
         Pan pan = new Pan();
         FirePlace firePlace = new FirePlace(pan);
+        KitchenWare[] tools = new KitchenWare[] {knife, cuttingBoard, pan, firePlace};
 
-        Recipe recipe = new Recipe(new Ingredient[] {onion, tomato, paprika, butter, salt, pepper, water},
-                new KitchenWare[] {knife, cuttingBoard, pan, firePlace}, 0.2, 0.1, "Lecsó");
+        Recipe recipe = new Recipe(new Ingredient[] {onion, tomato, paprika, butter, salt, pepper, water}, tools,
+                0.2, 0.1, "Lecsó");
         recipe.cooking();
 
-        System.out.println("\nOur job is done here, we cooked the dinner, it's Tamás' duty to wash the dishes.");
+        System.out.println("");
+        for (KitchenWare tool : tools) {
+            System.out.println("The " + tool.getClass().getSimpleName().toLowerCase() + " is " + tool.getStatus() + ".");
+        }
+        System.out.println("\nWe cooked the dinner, it's Tamás' duty to wash the dishes.");
     }
 }

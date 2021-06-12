@@ -22,7 +22,7 @@ public class Recipe {
         this.saltiness = saltiness;
         this.hotness = hotness;
         this.name = name;
-        COOKING_TIME = 200 * ingredients.length;
+        COOKING_TIME = 250 * ingredients.length;
     }
 
 
@@ -68,7 +68,15 @@ public class Recipe {
 
     public void cooking() throws InterruptedException {
         Knife knife = Chef.searchForKnife(tools);
+        if (knife == null) {
+            System.out.println("Go and get a knife!");
+            return;
+        }
         FirePlace firePlace = Chef.searchForFirePlace(tools);
+        if (firePlace == null) {
+            System.out.println("Buy a fireplace first!");
+            return;
+        }
         for (Ingredient ingr : ingredients) {
             Chef.wash(ingr);
             Chef.peel(ingr, knife);

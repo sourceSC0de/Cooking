@@ -41,19 +41,21 @@ public class Chef {
         if (ingredient instanceof Onion && ingredient.getPossibleStates(ingredient.getStateIndex()).equals("diced")) {
             System.out.println("(My eyes! MY EYES!!!)");
         }
+        knife.setStatus("dirty");
+        knife.getCuttingBoard().setStatus("dirty");
     }
 
 
     public static void cook(FirePlace firePlace, int time) throws InterruptedException {
 
         System.out.print("Cooking in progress");
-        Thread.sleep((long) time);
+        Thread.sleep(time);
         System.out.print(".");
-        Thread.sleep((long) time);
+        Thread.sleep(time);
         System.out.print(".");
-        Thread.sleep((long) time);
+        Thread.sleep(time);
         System.out.print(".\n");
-        Thread.sleep((long) time);
+        Thread.sleep(time);
 
         for (Ingredient ingredient : firePlace.getPan().getIngredients()) {
             ingredient.setStateIndex(ingredient.getStateIndex() + 1);
@@ -62,6 +64,9 @@ public class Chef {
                         + ingredient.getCurrentState() + ".");
             }
         }
+
+        firePlace.setStatus("dirty");
+        firePlace.getPan().setStatus("dirty");
     }
 
 
